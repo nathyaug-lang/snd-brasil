@@ -4,3 +4,19 @@ Thumbs.db
 *.tmp
 .vscode/
 .idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Logs gerados em runtime
+logs/*.log
+
+# Snapshots locais (nao commit) -- mantem somente os iniciais
+# dados/snd_dados.json e snd_dados_anterior.json sao versionados como
+# baseline; logs/atualizacoes.log e .pyc sao gerados em deploy/runtime

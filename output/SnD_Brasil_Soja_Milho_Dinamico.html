@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>SnD Brasil — Soja e Milho · Dinâmico</title>
+<style>
+:root{--navy:#0A2342;--green:#1E5631;--green-soft:#2E7D4F;--ink:#1B1F23;
+  --muted:#5B6775;--line:#E4E7EB;--zebra:#F7F9FB;--accent:#F3F6F4;--warn:#B45309;
+  --new:#FFFBEA;--new-br:#F59E0B}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:#fff;color:var(--ink);
+  font-family:"Segoe UI","Inter","Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.55}
+.page{max-width:1280px;margin:0 auto;padding:40px 48px 80px}
+header.top{display:flex;align-items:center;justify-content:space-between;
+  border-bottom:3px solid var(--green);padding-bottom:20px;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:18px}.brand .logo{max-height:54px;width:auto}
+.brand .divider{width:1px;height:56px;background:var(--line)}
+.brand .tagline{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.brand .tagline strong{display:block;color:var(--navy);font-size:13px;letter-spacing:.14em;margin-bottom:2px}
+.doc-meta{text-align:right;font-size:12px;color:var(--muted)}
+.doc-meta .date{color:var(--navy);font-weight:600;font-size:13px}
+.doc-meta .live{display:inline-block;padding:3px 10px;background:var(--green);color:#fff;
+  border-radius:3px;font-size:10px;letter-spacing:.1em;margin-top:6px;font-weight:600}
+h1.title{font-size:30px;font-weight:700;color:var(--navy);margin:0 0 4px;letter-spacing:-.01em}
+.subtitle{color:var(--green);font-weight:600;font-size:15px;margin-bottom:24px}
+.section-intro{color:var(--muted);font-size:13px;margin-bottom:24px;max-width:960px}
+section{margin-bottom:44px}
+h2{font-size:20px;color:#fff;background:var(--navy);margin:0;padding:12px 18px;
+  letter-spacing:.02em;border-left:6px solid var(--green);font-weight:600}
+h2 .sub{font-weight:400;color:#C9D4E0;font-size:13px;margin-left:10px}
+h3{font-size:14px;color:var(--navy);margin:24px 0 10px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--line);padding-bottom:6px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-top:none}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+thead th{background:var(--green);color:#fff;font-weight:600;text-align:right;
+  padding:10px 12px;font-size:12px;letter-spacing:.03em;text-transform:uppercase;
+  border-bottom:2px solid var(--navy)}
+thead th:first-child{text-align:left}
+tbody td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--navy)}
+tbody tr:nth-child(even){background:var(--zebra)}
+tbody tr:hover{background:#EEF4EF}
+tbody tr.projection td{font-style:italic;color:var(--muted)}
+tbody tr.projection td:first-child{color:var(--green);font-style:normal}
+tbody tr.projection td:first-child::after{content:"  proj.";font-size:10px;
+  color:var(--green-soft);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-style:italic}
+td.hl-stock,th.hl-stock{background:#F0F5F1}
+td.hl-ratio,th.hl-ratio{background:#F0F5F1;font-weight:600;color:var(--green)}
+tbody tr:nth-child(even) td.hl-stock,tbody tr:nth-child(even) td.hl-ratio{background:#E7EEE9}
+td.changed{background:var(--new) !important;position:relative;font-weight:700;color:#9A3412}
+td.changed::after{content:"●";color:var(--new-br);position:absolute;top:2px;right:4px;font-size:10px}
+.unit-note{font-size:11px;color:var(--muted);margin:6px 0 0;text-align:right}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 10px}
+.kpi{padding:14px 16px;background:var(--accent);border-top:3px solid var(--green);
+  border-bottom:1px solid var(--line)}
+.kpi .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.kpi .value{font-size:20px;color:var(--navy);font-weight:700;margin-top:4px}
+.kpi .delta{font-size:12px;color:var(--green);margin-top:2px;font-weight:600}
+.updates-box{border:2px solid var(--new-br);background:var(--new);padding:16px 20px;
+  border-radius:4px;margin-bottom:24px}
+.updates-box h2{background:var(--new-br);color:#fff;border-left-color:#B45309;margin-bottom:12px}
+.updates-box .none{color:var(--muted);font-style:italic;padding:12px 0}
+.updates-list{margin:14px 0 0;padding:0;list-style:none}
+.updates-list li{padding:6px 0;border-bottom:1px dotted #E4C577;font-size:13px}
+.updates-list li:last-child{border-bottom:none}
+.updates-list strong{color:var(--navy)}
+.updates-list .delta-up{color:var(--green);font-weight:700}
+.updates-list .delta-dn{color:var(--warn);font-weight:700}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.news-card{padding:10px 12px;border-left:3px solid var(--green);background:var(--zebra);font-size:12px}
+.news-card a{color:var(--navy);text-decoration:none;font-weight:600}
+.news-card a:hover{text-decoration:underline}
+.news-card .meta{color:var(--muted);font-size:11px;margin-top:4px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.card{border:1px solid var(--line);border-left:4px solid var(--green);padding:14px 16px;background:#fff}
+.card h4{margin:0 0 8px;font-size:12px;letter-spacing:.1em;color:var(--navy);text-transform:uppercase;font-weight:700}
+.card p{margin:0;font-size:13px;line-height:1.55}
+.card.navy{border-left-color:var(--navy)}
+.card.warn{border-left-color:var(--warn)}.card.warn h4{color:var(--warn)}
+.analysis p{margin:0 0 12px;max-width:960px}.analysis strong{color:var(--navy)}
+.synth-box{margin-top:22px;padding:16px 20px;background:var(--accent);border-left:4px solid var(--navy)}
+footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:11px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .src strong{color:var(--navy)}
+</style></head><body><div class="page">
+
+<header class="top">
+  <div class="brand">
+    <div class="divider"></div>
+    <div class="tagline"><strong>Research &amp; Market Intelligence</strong>
+      Modelo Dinâmico · Atualização Automática</div>
+  </div>
+  <div class="doc-meta">
+    <div class="date">Atualizado em 29/04/2026 11:18</div>
+    <div>Pipeline: Conab · CEPEA · ComexStat · IBGE · USDA</div>
+    <div class="live">● LIVE MODEL</div>
+  </div>
+</header>
+
+<h1 class="title">Supply and Demand Brasil — Soja e Milho</h1>
+<div class="subtitle">Modelo Vivo · Safras 2020/21 a 2025/26 (projeção)</div>
+
+<p class="section-intro">
+  Relatório automatizado com pipeline de coleta via RSS (Conab, CEPEA) e APIs
+  (ComexStat, IBGE SIDRA, USDA PSD). Células destacadas em amarelo ●
+  foram modificadas na última execução do coletor.
+  Fontes priorizadas: <strong>Conab</strong> (Brasil) · <strong>USDA</strong> (global)
+  · <strong>IBGE</strong> (validação cruzada).
+</p>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="label">Soja 2025/26 · Produção</div>
+    <div class="value">179,1 Mt</div>
+    <div class="delta">Est/Uso 6,5%</div></div>
+  <div class="kpi"><div class="label">Milho 2025/26 · Produção</div>
+    <div class="value">139,6 Mt</div>
+    <div class="delta">Est/Uso 5,7%</div></div>
+  <div class="kpi"><div class="label">Exp. Soja 2025/26</div>
+    <div class="value">113,5 Mt</div>
+    <div class="delta">63,4% prod.</div></div>
+  <div class="kpi"><div class="label">Exp. Milho 2025/26</div>
+    <div class="value">41,0 Mt</div>
+    <div class="delta">29,4% prod.</div></div>
+</div>
+
+<section class="updates-box"><h2>Atualizações Recentes <span class="sub">5 campo(s) alterado(s)</span></h2><ul class="updates-list"><li><strong>Soja 2025/26</strong> · produção: 174,00 → <strong>175,80</strong> <span class="delta-up">▲ +1.8</span> <span style="color:#5B6775;font-size:11px">[Conab 11º Lev. · abr/2026]</span></li><li><strong>Soja 2025/26</strong> · exportação: 112,00 → <strong>113,50</strong> <span class="delta-up">▲ +1.5</span> <span style="color:#5B6775;font-size:11px">[ComexStat · ano 2026]</span></li><li><strong>Milho 2025/26</strong> · produção 2ª safra: 112,20 → <strong>114,00</strong> <span class="delta-up">▲ +1.8</span> <span style="color:#5B6775;font-size:11px">[Conab 11º Lev. · abr/2026]</span></li><li><strong>Milho 2025/26</strong> · produção: 137,00 → <strong>138,80</strong> <span class="delta-up">▲ +1.8</span> <span style="color:#5B6775;font-size:11px">[Conab 11º Lev. · abr/2026]</span></li><li><strong>Farelo Soja 2025/26</strong> · exportação: 24,80 → <strong>25,30</strong> <span class="delta-up">▲ +0.5</span> <span style="color:#5B6775;font-size:11px">[ComexStat · ano 2026]</span></li></ul></section>
+
+<section><h2>1. Soja — Grão <span class="sub">Balanço nacional</span></h2>
+<div class="table-wrap"><table><thead><tr><th>Safra</th><th>Área (Mi ha)</th><th>Produtividade (kg/ha)</th><th>Produção (Mt)</th><th>Importação (Mt)</th><th>Oferta Total (Mt)</th><th>Consumo (Mt)</th><th>Exportação (Mt)</th><th class="hl-stock">Estoques Finais (Mt)</th><th class="hl-ratio">Estoque/Uso (%)</th></tr></thead><tbody><tr><td>2020/21</td><td class="">38,5</td><td class="">3.548</td><td class="">136,6</td><td class="">1,02</td><td class="">137,6</td><td class="">46,8</td><td class="">86,1</td><td class="hl-stock">5,5</td><td class="hl-ratio">4,1%</td></tr><tr><td>2021/22</td><td class="">41,5</td><td class="">3.028</td><td class="">125,6</td><td class="">0,55</td><td class="">131,6</td><td class="">49,4</td><td class="">79,0</td><td class="hl-stock">3,8</td><td class="hl-ratio">3,0%</td></tr><tr><td>2022/23</td><td class="">44,0</td><td class="">3.511</td><td class="">154,6</td><td class="">0,60</td><td class="">159,0</td><td class="">52,8</td><td class="">101,9</td><td class="hl-stock">4,4</td><td class="hl-ratio">2,8%</td></tr><tr><td>2023/24</td><td class="">45,9</td><td class="">3.225</td><td class="">147,4</td><td class="">0,50</td><td class="">152,3</td><td class="">55,0</td><td class="">98,4</td><td class="hl-stock">4,8</td><td class="hl-ratio">3,1%</td></tr><tr><td>2024/25</td><td class="">47,5</td><td class="">3.514</td><td class="">166,9</td><td class="">0,50</td><td class="">172,2</td><td class="">56,8</td><td class="">105,5</td><td class="hl-stock">8,6</td><td class="hl-ratio">5,3%</td></tr><tr class="projection"><td>2025/26</td><td class="">48,4</td><td class="">3.696</td><td class=" changed">179,1</td><td class="">0,50</td><td class="">188,2</td><td class="">58,5</td><td class=" changed">113,5</td><td class="hl-stock">11,2</td><td class="hl-ratio">6,5%</td></tr></tbody></table></div>
+<div class="unit-note">Fonte: Conab / USDA / IBGE · atualizado via API.</div></section>
+
+<section><h2>2. Complexo Soja <span class="sub">Farelo e Óleo</span></h2>
+<h3>2.1 Farelo de Soja</h3><div class="table-wrap"><table><thead><tr><th>Safra</th><th>Produção (Mt)</th><th>Consumo Interno (Mt)</th><th>Exportação (Mt)</th><th class="hl-stock">Estoques Finais (Mt)</th><th class="hl-ratio">% Cons./Prod.</th><th class="hl-ratio">% Exp./Prod.</th></tr></thead><tbody><tr><td>2020/21</td><td class="">35,60</td><td class="">17,80</td><td class="">17,00</td><td class="hl-stock">1,90</td><td class="hl-ratio">50,0%</td><td class="hl-ratio">47,8%</td></tr><tr><td>2021/22</td><td class="">38,20</td><td class="">18,70</td><td class="">20,20</td><td class="hl-stock">1,30</td><td class="hl-ratio">49,0%</td><td class="hl-ratio">52,9%</td></tr><tr><td>2022/23</td><td class="">40,30</td><td class="">20,30</td><td class="">22,00</td><td class="hl-stock">1,20</td><td class="hl-ratio">50,4%</td><td class="hl-ratio">54,6%</td></tr><tr><td>2023/24</td><td class="">43,10</td><td class="">21,90</td><td class="">23,70</td><td class="hl-stock">1,30</td><td class="hl-ratio">50,8%</td><td class="hl-ratio">55,0%</td></tr><tr><td>2024/25</td><td class="">44,50</td><td class="">23,50</td><td class="">24,00</td><td class="hl-stock">1,50</td><td class="hl-ratio">52,8%</td><td class="hl-ratio">53,9%</td></tr><tr class="projection"><td>2025/26</td><td class=" changed">46,20</td><td class="">24,40</td><td class=" changed">25,30</td><td class="hl-stock">1,60</td><td class="hl-ratio">52,8%</td><td class="hl-ratio">54,8%</td></tr></tbody></table></div>
+<h3>2.2 Óleo de Soja</h3><div class="table-wrap"><table><thead><tr><th>Safra</th><th>Produção (Mt)</th><th>Consumo Interno (Mt)</th><th>Exportação (Mt)</th><th class="hl-stock">Estoques Finais (Mt)</th><th class="hl-ratio">% Cons./Prod.</th><th class="hl-ratio">% Exp./Prod.</th></tr></thead><tbody><tr><td>2020/21</td><td class="">9,10</td><td class="">7,90</td><td class="">1,30</td><td class="hl-stock">0,40</td><td class="hl-ratio">86,8%</td><td class="hl-ratio">14,3%</td></tr><tr><td>2021/22</td><td class="">9,60</td><td class="">8,50</td><td class="">1,20</td><td class="hl-stock">0,40</td><td class="hl-ratio">88,5%</td><td class="hl-ratio">12,5%</td></tr><tr><td>2022/23</td><td class="">10,30</td><td class="">9,00</td><td class="">1,10</td><td class="hl-stock">0,30</td><td class="hl-ratio">87,4%</td><td class="hl-ratio">10,7%</td></tr><tr><td>2023/24</td><td class="">11,00</td><td class="">9,80</td><td class="">1,40</td><td class="hl-stock">0,40</td><td class="hl-ratio">89,1%</td><td class="hl-ratio">12,7%</td></tr><tr><td>2024/25</td><td class="">11,50</td><td class="">10,20</td><td class="">1,20</td><td class="hl-stock">0,50</td><td class="hl-ratio">88,7%</td><td class="hl-ratio">10,4%</td></tr><tr class="projection"><td>2025/26</td><td class=" changed">11,90</td><td class="">10,60</td><td class=" changed">1,10</td><td class="hl-stock">0,55</td><td class="hl-ratio">89,1%</td><td class="hl-ratio">9,2%</td></tr></tbody></table></div></section>
+
+<section><h2>3. Milho <span class="sub">1ª e 2ª safra</span></h2>
+<div class="table-wrap"><table><thead><tr><th>Safra</th><th>Área (Mi ha)</th><th>Produtiv. (kg/ha)</th><th>Prod. 1ª Safra (Mt)</th><th>Prod. 2ª Safra (Mt)</th><th>Produção Total (Mt)</th><th>Importação (Mt)</th><th>Oferta Total (Mt)</th><th>Consumo (Mt)</th><th>Exportação (Mt)</th><th class="hl-stock">Estoques (Mt)</th><th class="hl-ratio">Estoque/Uso (%)</th></tr></thead><tbody><tr><td>2020/21</td><td class="">19,8</td><td class="">4.441</td><td class="">25,1</td><td class="">62,0</td><td class="">87,9</td><td class="">3,3</td><td class="">91,2</td><td class="">69,3</td><td class="">20,8</td><td class="hl-stock">3,6</td><td class="hl-ratio">4,0%</td></tr><tr><td>2021/22</td><td class="">22,2</td><td class="">5.104</td><td class="">25,9</td><td class="">86,1</td><td class="">113,3</td><td class="">3,0</td><td class="">119,9</td><td class="">73,4</td><td class="">43,0</td><td class="hl-stock">3,3</td><td class="hl-ratio">2,8%</td></tr><tr><td>2022/23</td><td class="">22,8</td><td class="">5.785</td><td class="">27,3</td><td class="">102,1</td><td class="">131,9</td><td class="">1,3</td><td class="">136,5</td><td class="">78,4</td><td class="">56,1</td><td class="hl-stock">6,8</td><td class="hl-ratio">5,1%</td></tr><tr><td>2023/24</td><td class="">21,1</td><td class="">5.678</td><td class="">23,3</td><td class="">95,0</td><td class="">119,8</td><td class="">2,0</td><td class="">128,6</td><td class="">82,4</td><td class="">39,2</td><td class="hl-stock">7,0</td><td class="hl-ratio">5,8%</td></tr><tr><td>2024/25</td><td class="">21,3</td><td class="">6.192</td><td class="">24,2</td><td class="">113,2</td><td class="">139,6</td><td class="">1,5</td><td class="">148,1</td><td class="">87,9</td><td class="">44,0</td><td class="hl-stock">6,5</td><td class="hl-ratio">4,9%</td></tr><tr class="projection"><td>2025/26</td><td class="">22,1</td><td class="">6.316</td><td class="">28,0</td><td class=" changed">109,1</td><td class=" changed">139,6</td><td class="">1,5</td><td class="">147,6</td><td class="">91,5</td><td class=" changed">41,0</td><td class="hl-stock">7,5</td><td class="hl-ratio">5,7%</td></tr></tbody></table></div>
+<div class="unit-note">2ª safra (safrinha) responde por ~80% do total nacional.</div></section>
+
+<section><h2>4. Exportações Consolidadas</h2><div class="table-wrap"><table><thead><tr><th>Safra</th><th>Soja (Mt)</th><th>% Exp/Prod Soja</th><th>Milho (Mt)</th><th>% Exp/Prod Milho</th><th>Farelo (Mt)</th><th>% Exp/Prod Farelo</th><th>Óleo (Mt)</th><th>% Exp/Prod Óleo</th></tr></thead><tbody><tr><td>2020/21</td><td>86,1</td><td>63,0%</td><td>20,8</td><td>23,7%</td><td>17,00</td><td>47,8%</td><td>1,30</td><td>14,3%</td></tr><tr><td>2021/22</td><td>79,0</td><td>62,9%</td><td>43,0</td><td>38,0%</td><td>20,20</td><td>52,9%</td><td>1,20</td><td>12,5%</td></tr><tr><td>2022/23</td><td>101,9</td><td>65,9%</td><td>56,1</td><td>42,5%</td><td>22,00</td><td>54,6%</td><td>1,10</td><td>10,7%</td></tr><tr><td>2023/24</td><td>98,4</td><td>66,8%</td><td>39,2</td><td>32,7%</td><td>23,70</td><td>55,0%</td><td>1,40</td><td>12,7%</td></tr><tr><td>2024/25</td><td>105,5</td><td>63,2%</td><td>44,0</td><td>31,5%</td><td>24,00</td><td>53,9%</td><td>1,20</td><td>10,4%</td></tr><tr class="projection"><td>2025/26</td><td>113,5</td><td>63,4%</td><td>41,0</td><td>29,4%</td><td>25,30</td><td>54,8%</td><td>1,10</td><td>9,2%</td></tr></tbody></table></div></section>
+
+
+
+
+<section>
+  <h2>Análise Automática de Mercado <span class="sub">gerada a partir do snapshot atual</span></h2>
+  <div class="analysis" style="padding:18px 0 0">
+    <h3>Mudanças na Oferta</h3>
+    <p>Soja 2025/26: produção em <strong>179,1 Mt</strong>
+    (+7.3% vs. safra anterior). Milho 2025/26:
+    <strong>139,6 Mt</strong> (+0.0% vs. safra anterior).
+    5 campos atualizados nesta rodada.</p>
+
+    <h3>Ritmo de Exportação</h3>
+    <p>Soja: 113,5 Mt (+7.6% a/a),
+    equivale a <strong>63,4%</strong>
+    da produção. Milho: 41,0 Mt (-6.8% a/a),
+    ou <strong>29,4%</strong> da produção.</p>
+
+    <h3>Impacto nos Estoques</h3>
+    <p>Estoques finais de soja em <strong>11,2 Mt</strong>
+    (estoque/uso 6,5% — cenário <strong>confortável</strong>,
+    variação de +30.2% vs. safra anterior). Milho: 7,5 Mt
+    com estoque/uso 5,7% (<strong>confortável</strong>).</p>
+
+    <h3>Complexo Esmagamento (Crush)</h3>
+    <p>Farelo 2025/26: produção
+    46,2 Mt, exportação
+    54,8% da produção.
+    Óleo: produção 11,9 Mt,
+    exportação apenas 9,2%
+    — biodiesel segue como dreno doméstico estrutural.</p>
+  </div>
+</section>
+
+
+<section>
+  <h2>Insights — Leitura de Trader</h2>
+  <div class="grid-3">
+    <div class="card navy"><h4>Balanço Soja</h4>
+      <p>Estoque/uso 6,5% — <strong>FOLGADO — viés baixista</strong>.
+      Qualquer quebra no Centro-Oeste recoloca prêmios rapidamente.</p></div>
+    <div class="card navy"><h4>Balanço Milho</h4>
+      <p>Estoque/uso 5,7% — <strong>FOLGADO — viés baixista</strong>.
+      Safrinha continua sendo a variável-chave (fev–mai).</p></div>
+    <div class="card warn"><h4>Riscos de Curto Prazo</h4>
+      <p>(i) climático safrinha; (ii) câmbio apreciado pressiona rentabilidade;
+      (iii) China-EUA no radar tarifário; (iv) logística Arco Norte no pico.</p></div>
+    <div class="card"><h4>Preço — Soja</h4>
+      <p>Oferta ampla pressiona base. Foco em spreads interno × FOB;
+      crush margin positivo sustenta premium do complexo.</p></div>
+    <div class="card"><h4>Preço — Milho</h4>
+      <p>Etanol de milho é piso estrutural. Exportação competitiva vs. EUA
+      depende de câmbio e diferencial logístico.</p></div>
+    <div class="card"><h4>Estratégia Comercial</h4>
+      <p>Vendido de hedge com opção de recompra em eventos climáticos.
+      Spread farelo–óleo favorece processador.</p></div>
+  </div>
+  <div class="synth-box"><strong style="color:var(--navy)">Síntese:</strong>
+  Balanço soja folgado e milho
+  folgado. Monitorar feed de notícias Conab/CEPEA
+  para sinais antecipados sobre safrinha e fluxo de exportação.</div>
+</section>
+
+<footer>
+  <div class="src"><strong>Fontes:</strong> Conab · USDA/WASDE ·
+    IBGE SIDRA (API) · ComexStat (API) · CEPEA ·
+    pipeline automatizado Innovagro.</div>
+  <div>© 2026 Innovagro Brasil · Modelo dinâmico · Não é recomendação de investimento.</div>
+</footer>
+</div></body></html>

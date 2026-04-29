@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Market Change Detection — Soja e Milho Brasil</title>
+<style>
+:root{--navy:#0A2342;--green:#1E5631;--green-soft:#2E7D4F;--ink:#1B1F23;
+  --muted:#5B6775;--line:#E4E7EB;--zebra:#F7F9FB;--accent:#F3F6F4;
+  --warn:#B45309;--danger:#B91C1C;--up:#047857;--down:#B91C1C;
+  --alert-bg:#FEF3C7;--alert-br:#F59E0B}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:#fff;color:var(--ink);
+  font-family:"Segoe UI","Inter","Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.55}
+.page{max-width:1280px;margin:0 auto;padding:40px 48px 80px}
+header.top{display:flex;align-items:center;justify-content:space-between;
+  border-bottom:3px solid var(--green);padding-bottom:20px;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:18px}.brand .logo{max-height:54px;width:auto}
+.brand .divider{width:1px;height:56px;background:var(--line)}
+.brand .tagline{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.brand .tagline strong{display:block;color:var(--navy);font-size:13px;letter-spacing:.14em;margin-bottom:2px}
+.doc-meta{text-align:right;font-size:12px;color:var(--muted)}
+.doc-meta .date{color:var(--navy);font-weight:600;font-size:13px}
+.doc-meta .badge{display:inline-block;padding:3px 10px;border-radius:3px;font-size:10px;
+  letter-spacing:.1em;margin-top:6px;font-weight:600}
+.badge.detector{background:var(--alert-br);color:#fff}
+.badge.live{background:var(--green);color:#fff;margin-left:6px}
+
+h1.title{font-size:30px;font-weight:700;color:var(--navy);margin:0 0 4px;letter-spacing:-.01em}
+.subtitle{color:var(--green);font-weight:600;font-size:15px;margin-bottom:22px}
+
+.summary-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0}
+.summary{padding:14px 16px;background:var(--accent);border-top:3px solid var(--navy);
+  border-bottom:1px solid var(--line)}
+.summary .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.summary .value{font-size:22px;color:var(--navy);font-weight:700;margin-top:4px}
+.summary.apertado{border-top-color:var(--danger)}
+.summary.folgado{border-top-color:var(--up)}
+.summary.equilibrado{border-top-color:var(--muted)}
+.summary.apertado .value{color:var(--danger)}
+.summary.folgado .value{color:var(--up)}
+.summary .hint{font-size:11px;color:var(--muted);margin-top:2px}
+
+section{margin-bottom:36px}
+h2{font-size:20px;color:#fff;background:var(--navy);margin:0;padding:12px 18px;
+  letter-spacing:.02em;border-left:6px solid var(--green);font-weight:600}
+h2 .sub{font-weight:400;color:#C9D4E0;font-size:13px;margin-left:10px}
+h3{font-size:13px;color:var(--navy);margin:22px 0 10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--line);padding-bottom:5px}
+
+.empty-note{padding:22px;background:var(--zebra);color:var(--muted);
+  font-style:italic;text-align:center;border:1px dashed var(--line)}
+
+/* === O QUE MUDOU === */
+.changes-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.changes-col{border:1px solid var(--line);padding:0}
+.changes-col .col-head{background:var(--green);color:#fff;padding:10px 14px;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:13px;
+  display:flex;justify-content:space-between;align-items:center}
+.changes-col .col-head .count{background:#fff;color:var(--green);padding:2px 8px;
+  border-radius:20px;font-size:11px;font-weight:700}
+.change-item{padding:12px 14px;border-bottom:1px solid var(--line);font-size:13px;display:flex;
+  justify-content:space-between;align-items:flex-start;gap:14px}
+.change-item:last-child{border-bottom:none}
+.change-item .head{font-weight:700;color:var(--navy);font-size:13px}
+.change-item .field{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.change-item .values{margin-top:3px;font-size:13px}
+.change-item .values .old{color:var(--muted)}
+.change-item .values .new{color:var(--navy);font-weight:700}
+.change-item .sev{padding:3px 8px;border-radius:3px;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;flex-shrink:0}
+.sev.relevante{background:#DBEAFE;color:#1E40AF}
+.sev.estrutural{background:#FEE2E2;color:var(--danger)}
+.change-item .delta{margin-left:6px}
+.up{color:var(--up);font-weight:700}.down{color:var(--down);font-weight:700}
+.change-item .fonte{color:var(--muted);font-size:10px;margin-top:3px}
+.change-item .coment{color:var(--navy);font-style:italic;font-size:11px;margin-top:4px}
+
+/* === IMPACTO === */
+.impact-table{width:100%;border-collapse:collapse;margin-top:10px;border:1px solid var(--line)}
+.impact-table thead th{background:var(--green);color:#fff;font-weight:600;padding:9px 12px;
+  font-size:11px;letter-spacing:.04em;text-transform:uppercase;text-align:left}
+.impact-table tbody td{padding:8px 12px;border-bottom:1px solid var(--line);font-size:12px}
+.impact-table tbody tr:nth-child(even){background:var(--zebra)}
+.impact-table td.bloco{font-weight:700;color:var(--navy)}
+.impact-table td.center{text-align:center}
+.pill{display:inline-block;padding:2px 9px;border-radius:3px;font-size:10px;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.pill.alta{background:#D1FAE5;color:var(--up)}
+.pill.baixa{background:#FEE2E2;color:var(--down)}
+.pill.neutro{background:var(--line);color:var(--muted)}
+.pill.aperto{background:#FECACA;color:var(--danger)}
+.pill.folga{background:#BBF7D0;color:var(--up)}
+
+/* === SINAIS === */
+.signals{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:12px}
+.signal-card{border:1px solid var(--line);padding:0;background:#fff}
+.signal-card .sc-head{padding:14px 18px;color:#fff;display:flex;justify-content:space-between;
+  align-items:center}
+.signal-card.apertado .sc-head{background:var(--danger)}
+.signal-card.folgado .sc-head{background:var(--up)}
+.signal-card.equilibrado .sc-head{background:var(--muted)}
+.signal-card.sem_base .sc-head{background:var(--muted)}
+.signal-card .sc-head .commodity{font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.signal-card .sc-head .balanco{font-size:18px;font-weight:800}
+.signal-card .sc-body{padding:14px 18px;font-size:13px;line-height:1.55}
+.signal-card .sc-body dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.signal-card .sc-body dt{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.signal-card .sc-body dd{margin:0;color:var(--ink)}
+.signal-card .sc-body dd strong{color:var(--navy)}
+
+/* === ALERTAS === */
+.alerts-box{border:2px solid var(--alert-br);background:var(--alert-bg);
+  padding:16px 20px;margin-top:14px}
+.alerts-box h3{color:var(--warn);border-bottom:1px solid var(--alert-br);margin-top:0}
+.alerts-list{margin:0;padding:0;list-style:none}
+.alerts-list li{padding:10px 0 10px 28px;border-bottom:1px dotted #E4C577;
+  font-size:13px;position:relative;color:var(--ink)}
+.alerts-list li:last-child{border-bottom:none}
+.alerts-list li::before{content:"▲";color:var(--alert-br);position:absolute;left:4px;top:10px;
+  font-weight:700;font-size:14px}
+
+.synth{margin-top:22px;padding:18px 22px;background:var(--accent);border-left:4px solid var(--navy)}
+.synth strong{color:var(--navy)}
+
+footer{margin-top:46px;padding-top:14px;border-top:1px solid var(--line);
+  font-size:11px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .src strong{color:var(--navy)}
+</style></head><body><div class="page">
+
+<header class="top">
+  <div class="brand">
+    <div class="divider"></div>
+    <div class="tagline"><strong>Research &amp; Market Intelligence</strong>
+      Market Change Detection · Soja &amp; Milho Brasil</div>
+  </div>
+  <div class="doc-meta">
+    <div class="date">Gerado em 29/04/2026 11:18</div>
+    <div>Snapshot anterior: 28/04/2026 09:09</div>
+    <div><span class="badge detector">● DETECTOR ATIVO</span>
+         <span class="badge live">LIVE</span></div>
+  </div>
+</header>
+
+<h1 class="title">Market Change Detection — Soja e Milho</h1>
+<div class="subtitle">Análise comparativa entre snapshots do SnD · Sinais, Impactos e Alertas</div>
+
+<div class="summary-bar"><div class="summary "><div class="label">Total mudanças</div><div class="value">0</div><div class="hint">vs. snapshot anterior</div></div><div class="summary "><div class="label">Relevantes</div><div class="value">0</div><div class="hint">± 2-5% a/a</div></div><div class="summary "><div class="label">Estruturais</div><div class="value">0</div><div class="hint">&gt; threshold estrutural</div></div><div class="summary equilibrado"><div class="label">Soja</div><div class="value">EQUILIBRADO</div><div class="hint">est/uso 6,5%</div></div><div class="summary equilibrado"><div class="label">Milho</div><div class="value">EQUILIBRADO</div><div class="hint">est/uso 5,7%</div></div></div>
+
+<section><h2>1. O que mudou no SnD</h2><div class="empty-note">Sem alteração estrutural relevante.</div></section>
+<section><h2>2. Impacto no Balanço</h2><div class="empty-note">Nenhum impacto relevante a reportar.</div></section>
+<section><h2>3. Sinais de Mercado</h2><div class="signals"><div class="signal-card equilibrado">  <div class="sc-head">    <span class="commodity">Soja</span>    <span class="balanco">EQUILIBRADO</span>  </div>  <div class="sc-body"><dl>    <dt>Viés</dt><dd><strong>Neutro — sem viés claro</strong></dd>    <dt>Estoque/Uso</dt><dd>6,5%</dd>    <dt>Mudança estrutural</dt><dd>Não</dd>    <dt>Nº de mudanças</dt><dd>0 (0 estrutural/is)</dd>  </dl></div></div><div class="signal-card equilibrado">  <div class="sc-head">    <span class="commodity">Milho</span>    <span class="balanco">EQUILIBRADO</span>  </div>  <div class="sc-body"><dl>    <dt>Viés</dt><dd><strong>Neutro — sem viés claro</strong></dd>    <dt>Estoque/Uso</dt><dd>5,7%</dd>    <dt>Mudança estrutural</dt><dd>Não</dd>    <dt>Nº de mudanças</dt><dd>0 (0 estrutural/is)</dd>  </dl></div></div></div></section>
+<section><h2>4. Alertas Trader</h2><div class="empty-note">Nenhum alerta disparado — sem alteração estrutural relevante.</div></section>
+
+<div class="synth"><strong>Síntese executiva:</strong> Sem alteração estrutural relevante.</div>
+
+<footer>
+  <div class="src"><strong>Fontes:</strong> Conab · USDA/WASDE · IBGE SIDRA ·
+    ComexStat · CEPEA · Detector Innovagro.</div>
+  <div>© 2026 Innovagro Brasil · Market Change Detection ·
+    Não constitui recomendação de investimento.</div>
+</footer>
+</div></body></html>

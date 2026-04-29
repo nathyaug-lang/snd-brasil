@@ -1,0 +1,1906 @@
+{
+  "meta": {
+    "versao": "1.0",
+    "atualizado_em": "2026-04-28T11:10:39-03:00",
+    "fontes_usadas": [
+      "Conab - 7o Levantamento da Safra 2025/26 (14/04/2026)",
+      "Conab - 12o Levantamento da Safra 2024/25 (final)",
+      "USDA WASDE abr/2026 (cross-check global)",
+      "IBGE LSPA SIDRA t.6588",
+      "Secex / ComexStat (export YTD)"
+    ],
+    "observacoes": "Snapshot atualizado em 28/04/2026 com numeros Conab 7o Levantamento. Milho agora inclui 3a safra (1a verao + 2a safrinha + 3a Norte/Nordeste). StoneX e outras casas privadas (AgRural, Safras&Mercado) podem divergir 3-8 Mt por usarem metodologias proprias de field survey + sat imagery.",
+    "data_snapshot": "2026-04-28"
+  },
+  "soja_grao": {
+    "unidade": {
+      "area": "Mi ha",
+      "produtividade": "kg/ha",
+      "volume": "Mt"
+    },
+    "safras": [
+      {
+        "safra": "2020/21",
+        "area": 38.5,
+        "produtividade": 3548,
+        "producao": 136.6,
+        "importacao": 1.02,
+        "consumo": 46.8,
+        "exportacao": 86.1,
+        "estoques": 5.5,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 137.6,
+        "estoque_uso_pct": 4.1
+      },
+      {
+        "safra": "2021/22",
+        "area": 41.5,
+        "produtividade": 3028,
+        "producao": 125.6,
+        "importacao": 0.55,
+        "consumo": 49.4,
+        "exportacao": 79.0,
+        "estoques": 3.8,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 131.6,
+        "estoque_uso_pct": 3.0
+      },
+      {
+        "safra": "2022/23",
+        "area": 44.0,
+        "produtividade": 3511,
+        "producao": 154.6,
+        "importacao": 0.6,
+        "consumo": 52.8,
+        "exportacao": 101.9,
+        "estoques": 4.4,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 159.0,
+        "estoque_uso_pct": 2.8
+      },
+      {
+        "safra": "2023/24",
+        "area": 45.9,
+        "produtividade": 3225,
+        "producao": 147.4,
+        "importacao": 0.5,
+        "consumo": 55.0,
+        "exportacao": 98.4,
+        "estoques": 4.8,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 152.3,
+        "estoque_uso_pct": 3.1
+      },
+      {
+        "safra": "2024/25",
+        "area": 47.5,
+        "produtividade": 3514,
+        "producao": 166.9,
+        "importacao": 0.5,
+        "consumo": 56.8,
+        "exportacao": 105.5,
+        "estoques": 8.6,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 172.2,
+        "estoque_uso_pct": 5.3
+      },
+      {
+        "safra": "2025/26",
+        "area": 48.4,
+        "produtividade": 3696,
+        "producao": 179.1,
+        "importacao": 0.5,
+        "consumo": 58.5,
+        "exportacao": 113.5,
+        "estoques": 11.2,
+        "projecao": true,
+        "fonte": "Conab 7o Lev. (14/04/2026)",
+        "oferta_total": 188.2,
+        "estoque_uso_pct": 6.5
+      }
+    ]
+  },
+  "milho": {
+    "unidade": {
+      "area": "Mi ha",
+      "produtividade": "kg/ha",
+      "volume": "Mt"
+    },
+    "safras": [
+      {
+        "safra": "2020/21",
+        "area": 19.8,
+        "produtividade": 4441,
+        "producao_1a": 25.1,
+        "producao_2a": 61.95,
+        "producao": 87.9,
+        "importacao": 3.3,
+        "consumo": 69.3,
+        "exportacao": 20.8,
+        "estoques": 3.6,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 91.2,
+        "estoque_uso_pct": 4.0,
+        "producao_3a": 0.85
+      },
+      {
+        "safra": "2021/22",
+        "area": 22.2,
+        "produtividade": 5104,
+        "producao_1a": 25.92,
+        "producao_2a": 86.12,
+        "producao": 113.3,
+        "importacao": 3.0,
+        "consumo": 73.4,
+        "exportacao": 43.0,
+        "estoques": 3.3,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 119.9,
+        "estoque_uso_pct": 2.8,
+        "producao_3a": 1.26
+      },
+      {
+        "safra": "2022/23",
+        "area": 22.8,
+        "produtividade": 5785,
+        "producao_1a": 27.27,
+        "producao_2a": 102.1,
+        "producao": 131.9,
+        "importacao": 1.3,
+        "consumo": 78.4,
+        "exportacao": 56.1,
+        "estoques": 6.8,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 136.5,
+        "estoque_uso_pct": 5.1,
+        "producao_3a": 2.53
+      },
+      {
+        "safra": "2023/24",
+        "area": 21.1,
+        "produtividade": 5678,
+        "producao_1a": 23.3,
+        "producao_2a": 95.04,
+        "producao": 119.8,
+        "importacao": 2.0,
+        "consumo": 82.4,
+        "exportacao": 39.2,
+        "estoques": 7.0,
+        "projecao": false,
+        "fonte": "Conab",
+        "oferta_total": 128.6,
+        "estoque_uso_pct": 5.8,
+        "producao_3a": 1.46
+      },
+      {
+        "safra": "2024/25",
+        "area": 21.3,
+        "produtividade": 6192,
+        "producao_1a": 24.2,
+        "producao_2a": 113.2,
+        "producao": 139.6,
+        "importacao": 1.5,
+        "consumo": 87.9,
+        "exportacao": 44.0,
+        "estoques": 6.5,
+        "projecao": false,
+        "fonte": "Conab final 2024/25",
+        "oferta_total": 148.1,
+        "estoque_uso_pct": 4.9,
+        "producao_3a": 2.2
+      },
+      {
+        "safra": "2025/26",
+        "area": 22.1,
+        "produtividade": 6316,
+        "producao_1a": 28.0,
+        "producao_2a": 109.1,
+        "producao": 139.6,
+        "importacao": 1.5,
+        "consumo": 91.5,
+        "exportacao": 41.0,
+        "estoques": 7.5,
+        "projecao": true,
+        "fonte": "Conab 7o Lev. (14/04/2026)",
+        "oferta_total": 147.6,
+        "estoque_uso_pct": 5.7,
+        "producao_3a": 2.5
+      }
+    ]
+  },
+  "farelo_soja": {
+    "unidade": {
+      "volume": "Mt"
+    },
+    "safras": [
+      {
+        "safra": "2020/21",
+        "producao": 35.6,
+        "consumo": 17.8,
+        "exportacao": 17.0,
+        "estoques": 1.9,
+        "projecao": false,
+        "pct_consumo": 50.0,
+        "pct_exportacao": 47.8
+      },
+      {
+        "safra": "2021/22",
+        "producao": 38.2,
+        "consumo": 18.7,
+        "exportacao": 20.2,
+        "estoques": 1.3,
+        "projecao": false,
+        "pct_consumo": 49.0,
+        "pct_exportacao": 52.9
+      },
+      {
+        "safra": "2022/23",
+        "producao": 40.3,
+        "consumo": 20.3,
+        "exportacao": 22.0,
+        "estoques": 1.2,
+        "projecao": false,
+        "pct_consumo": 50.4,
+        "pct_exportacao": 54.6
+      },
+      {
+        "safra": "2023/24",
+        "producao": 43.1,
+        "consumo": 21.9,
+        "exportacao": 23.7,
+        "estoques": 1.3,
+        "projecao": false,
+        "pct_consumo": 50.8,
+        "pct_exportacao": 55.0
+      },
+      {
+        "safra": "2024/25",
+        "producao": 44.5,
+        "consumo": 23.5,
+        "exportacao": 24.0,
+        "estoques": 1.5,
+        "projecao": false,
+        "pct_consumo": 52.8,
+        "pct_exportacao": 53.9
+      },
+      {
+        "safra": "2025/26",
+        "producao": 46.2,
+        "consumo": 24.4,
+        "exportacao": 25.3,
+        "estoques": 1.6,
+        "projecao": true,
+        "pct_consumo": 52.8,
+        "pct_exportacao": 54.8
+      }
+    ]
+  },
+  "oleo_soja": {
+    "unidade": {
+      "volume": "Mt"
+    },
+    "safras": [
+      {
+        "safra": "2020/21",
+        "producao": 9.1,
+        "consumo": 7.9,
+        "exportacao": 1.3,
+        "estoques": 0.4,
+        "projecao": false,
+        "pct_consumo": 86.8,
+        "pct_exportacao": 14.3
+      },
+      {
+        "safra": "2021/22",
+        "producao": 9.6,
+        "consumo": 8.5,
+        "exportacao": 1.2,
+        "estoques": 0.4,
+        "projecao": false,
+        "pct_consumo": 88.5,
+        "pct_exportacao": 12.5
+      },
+      {
+        "safra": "2022/23",
+        "producao": 10.3,
+        "consumo": 9.0,
+        "exportacao": 1.1,
+        "estoques": 0.3,
+        "projecao": false,
+        "pct_consumo": 87.4,
+        "pct_exportacao": 10.7
+      },
+      {
+        "safra": "2023/24",
+        "producao": 11.0,
+        "consumo": 9.8,
+        "exportacao": 1.4,
+        "estoques": 0.4,
+        "projecao": false,
+        "pct_consumo": 89.1,
+        "pct_exportacao": 12.7
+      },
+      {
+        "safra": "2024/25",
+        "producao": 11.5,
+        "consumo": 10.2,
+        "exportacao": 1.2,
+        "estoques": 0.5,
+        "projecao": false,
+        "pct_consumo": 88.7,
+        "pct_exportacao": 10.4
+      },
+      {
+        "safra": "2025/26",
+        "producao": 11.9,
+        "consumo": 10.6,
+        "exportacao": 1.1,
+        "estoques": 0.55,
+        "projecao": true,
+        "pct_consumo": 89.1,
+        "pct_exportacao": 9.2
+      }
+    ]
+  },
+  "atualizacoes_recentes": [
+    {
+      "bloco": "soja_grao",
+      "safra": "2025/26",
+      "campo": "producao",
+      "anterior": 174.0,
+      "novo": 175.8,
+      "fonte": "Conab 11º Lev.",
+      "periodo": "abr/2026"
+    },
+    {
+      "bloco": "soja_grao",
+      "safra": "2025/26",
+      "campo": "exportacao",
+      "anterior": 112.0,
+      "novo": 113.5,
+      "fonte": "ComexStat",
+      "periodo": "ano 2026"
+    },
+    {
+      "bloco": "milho",
+      "safra": "2025/26",
+      "campo": "producao_2a",
+      "anterior": 112.2,
+      "novo": 114.0,
+      "fonte": "Conab 11º Lev.",
+      "periodo": "abr/2026"
+    },
+    {
+      "bloco": "milho",
+      "safra": "2025/26",
+      "campo": "producao",
+      "anterior": 137.0,
+      "novo": 138.8,
+      "fonte": "Conab 11º Lev.",
+      "periodo": "abr/2026"
+    },
+    {
+      "bloco": "farelo_soja",
+      "safra": "2025/26",
+      "campo": "exportacao",
+      "anterior": 24.8,
+      "novo": 25.3,
+      "fonte": "ComexStat",
+      "periodo": "ano 2026"
+    }
+  ],
+  "noticias_feed": [],
+  "estados_brasil": {
+    "unidade": {
+      "area": "Mi ha",
+      "produtividade": "kg/ha",
+      "producao": "Mt"
+    },
+    "safras": [
+      "2022/23",
+      "2023/24",
+      "2024/25",
+      "2025/26"
+    ],
+    "soja": [
+      {
+        "uf": "MT",
+        "nome": "Mato Grosso",
+        "dados": {
+          "2022/23": {
+            "area": 12.04,
+            "produtividade": 3789,
+            "producao": 45.61
+          },
+          "2023/24": {
+            "area": 12.3,
+            "produtividade": 3180,
+            "producao": 39.11
+          },
+          "2024/25": {
+            "area": 12.85,
+            "produtividade": 3650,
+            "producao": 46.9
+          },
+          "2025/26": {
+            "area": 13.1,
+            "produtividade": 3680,
+            "producao": 48.21
+          }
+        }
+      },
+      {
+        "uf": "PR",
+        "nome": "Paraná",
+        "dados": {
+          "2022/23": {
+            "area": 5.85,
+            "produtividade": 3770,
+            "producao": 22.06
+          },
+          "2023/24": {
+            "area": 5.85,
+            "produtividade": 3282,
+            "producao": 19.2
+          },
+          "2024/25": {
+            "area": 5.95,
+            "produtividade": 3690,
+            "producao": 21.96
+          },
+          "2025/26": {
+            "area": 6.0,
+            "produtividade": 3700,
+            "producao": 22.2
+          }
+        }
+      },
+      {
+        "uf": "RS",
+        "nome": "Rio Grande do Sul",
+        "dados": {
+          "2022/23": {
+            "area": 6.45,
+            "produtividade": 3427,
+            "producao": 22.1
+          },
+          "2023/24": {
+            "area": 6.61,
+            "produtividade": 3320,
+            "producao": 21.94
+          },
+          "2024/25": {
+            "area": 6.85,
+            "produtividade": 3270,
+            "producao": 22.4
+          },
+          "2025/26": {
+            "area": 6.9,
+            "produtividade": 3360,
+            "producao": 23.18
+          }
+        }
+      },
+      {
+        "uf": "GO",
+        "nome": "Goiás",
+        "dados": {
+          "2022/23": {
+            "area": 4.85,
+            "produtividade": 3381,
+            "producao": 16.4
+          },
+          "2023/24": {
+            "area": 4.95,
+            "produtividade": 3418,
+            "producao": 16.92
+          },
+          "2024/25": {
+            "area": 5.1,
+            "produtividade": 3461,
+            "producao": 17.65
+          },
+          "2025/26": {
+            "area": 5.2,
+            "produtividade": 3500,
+            "producao": 18.2
+          }
+        }
+      },
+      {
+        "uf": "MS",
+        "nome": "Mato Grosso do Sul",
+        "dados": {
+          "2022/23": {
+            "area": 4.1,
+            "produtividade": 3373,
+            "producao": 13.83
+          },
+          "2023/24": {
+            "area": 4.18,
+            "produtividade": 3292,
+            "producao": 13.76
+          },
+          "2024/25": {
+            "area": 4.32,
+            "produtividade": 3290,
+            "producao": 14.21
+          },
+          "2025/26": {
+            "area": 4.42,
+            "produtividade": 3325,
+            "producao": 14.7
+          }
+        }
+      },
+      {
+        "uf": "BA",
+        "nome": "Bahia",
+        "dados": {
+          "2022/23": {
+            "area": 1.81,
+            "produtividade": 3845,
+            "producao": 6.96
+          },
+          "2023/24": {
+            "area": 1.83,
+            "produtividade": 3700,
+            "producao": 6.77
+          },
+          "2024/25": {
+            "area": 1.92,
+            "produtividade": 3933,
+            "producao": 7.55
+          },
+          "2025/26": {
+            "area": 1.96,
+            "produtividade": 3950,
+            "producao": 7.74
+          }
+        }
+      },
+      {
+        "uf": "MG",
+        "nome": "Minas Gerais",
+        "dados": {
+          "2022/23": {
+            "area": 1.93,
+            "produtividade": 3548,
+            "producao": 6.85
+          },
+          "2023/24": {
+            "area": 1.99,
+            "produtividade": 3568,
+            "producao": 7.1
+          },
+          "2024/25": {
+            "area": 2.05,
+            "produtividade": 3512,
+            "producao": 7.2
+          },
+          "2025/26": {
+            "area": 2.1,
+            "produtividade": 3550,
+            "producao": 7.46
+          }
+        }
+      },
+      {
+        "uf": "TO",
+        "nome": "Tocantins",
+        "dados": {
+          "2022/23": {
+            "area": 1.27,
+            "produtividade": 3583,
+            "producao": 4.55
+          },
+          "2023/24": {
+            "area": 1.28,
+            "produtividade": 3359,
+            "producao": 4.3
+          },
+          "2024/25": {
+            "area": 1.32,
+            "produtividade": 3750,
+            "producao": 4.95
+          },
+          "2025/26": {
+            "area": 1.35,
+            "produtividade": 3780,
+            "producao": 5.1
+          }
+        }
+      },
+      {
+        "uf": "MA",
+        "nome": "Maranhão",
+        "dados": {
+          "2022/23": {
+            "area": 1.27,
+            "produtividade": 3315,
+            "producao": 4.21
+          },
+          "2023/24": {
+            "area": 1.24,
+            "produtividade": 3266,
+            "producao": 4.05
+          },
+          "2024/25": {
+            "area": 1.28,
+            "produtividade": 3438,
+            "producao": 4.4
+          },
+          "2025/26": {
+            "area": 1.3,
+            "produtividade": 3500,
+            "producao": 4.55
+          }
+        }
+      },
+      {
+        "uf": "PI",
+        "nome": "Piauí",
+        "dados": {
+          "2022/23": {
+            "area": 1.04,
+            "produtividade": 3000,
+            "producao": 3.12
+          },
+          "2023/24": {
+            "area": 1.0,
+            "produtividade": 2950,
+            "producao": 2.95
+          },
+          "2024/25": {
+            "area": 1.05,
+            "produtividade": 3190,
+            "producao": 3.35
+          },
+          "2025/26": {
+            "area": 1.07,
+            "produtividade": 3250,
+            "producao": 3.48
+          }
+        }
+      }
+    ],
+    "milho": [
+      {
+        "uf": "MT",
+        "nome": "Mato Grosso",
+        "dados": {
+          "2022/23": {
+            "area": 7.55,
+            "produtividade": 6750,
+            "producao": 50.96
+          },
+          "2023/24": {
+            "area": 6.95,
+            "produtividade": 5953,
+            "producao": 41.37
+          },
+          "2024/25": {
+            "area": 7.35,
+            "produtividade": 6695,
+            "producao": 49.21
+          },
+          "2025/26": {
+            "area": 7.5,
+            "produtividade": 6700,
+            "producao": 50.25
+          }
+        }
+      },
+      {
+        "uf": "PR",
+        "nome": "Paraná",
+        "dados": {
+          "2022/23": {
+            "area": 2.65,
+            "produtividade": 5524,
+            "producao": 14.64
+          },
+          "2023/24": {
+            "area": 2.7,
+            "produtividade": 5482,
+            "producao": 14.8
+          },
+          "2024/25": {
+            "area": 2.75,
+            "produtividade": 6000,
+            "producao": 16.5
+          },
+          "2025/26": {
+            "area": 2.78,
+            "produtividade": 6050,
+            "producao": 16.82
+          }
+        }
+      },
+      {
+        "uf": "GO",
+        "nome": "Goiás",
+        "dados": {
+          "2022/23": {
+            "area": 1.95,
+            "produtividade": 7128,
+            "producao": 13.9
+          },
+          "2023/24": {
+            "area": 1.92,
+            "produtividade": 6693,
+            "producao": 12.85
+          },
+          "2024/25": {
+            "area": 1.98,
+            "produtividade": 7172,
+            "producao": 14.2
+          },
+          "2025/26": {
+            "area": 2.0,
+            "produtividade": 7250,
+            "producao": 14.5
+          }
+        }
+      },
+      {
+        "uf": "MS",
+        "nome": "Mato Grosso do Sul",
+        "dados": {
+          "2022/23": {
+            "area": 2.55,
+            "produtividade": 5537,
+            "producao": 14.12
+          },
+          "2023/24": {
+            "area": 2.1,
+            "produtividade": 4667,
+            "producao": 9.8
+          },
+          "2024/25": {
+            "area": 2.3,
+            "produtividade": 5261,
+            "producao": 12.1
+          },
+          "2025/26": {
+            "area": 2.35,
+            "produtividade": 5400,
+            "producao": 12.69
+          }
+        }
+      },
+      {
+        "uf": "MG",
+        "nome": "Minas Gerais",
+        "dados": {
+          "2022/23": {
+            "area": 1.45,
+            "produtividade": 5862,
+            "producao": 8.5
+          },
+          "2023/24": {
+            "area": 1.42,
+            "produtividade": 5775,
+            "producao": 8.2
+          },
+          "2024/25": {
+            "area": 1.48,
+            "produtividade": 5946,
+            "producao": 8.8
+          },
+          "2025/26": {
+            "area": 1.5,
+            "produtividade": 6000,
+            "producao": 9.0
+          }
+        }
+      },
+      {
+        "uf": "RS",
+        "nome": "Rio Grande do Sul",
+        "dados": {
+          "2022/23": {
+            "area": 0.83,
+            "produtividade": 7614,
+            "producao": 6.32
+          },
+          "2023/24": {
+            "area": 0.81,
+            "produtividade": 7593,
+            "producao": 6.15
+          },
+          "2024/25": {
+            "area": 0.79,
+            "produtividade": 6456,
+            "producao": 5.1
+          },
+          "2025/26": {
+            "area": 0.81,
+            "produtividade": 6790,
+            "producao": 5.5
+          }
+        }
+      },
+      {
+        "uf": "SP",
+        "nome": "São Paulo",
+        "dados": {
+          "2022/23": {
+            "area": 0.66,
+            "produtividade": 5000,
+            "producao": 3.3
+          },
+          "2023/24": {
+            "area": 0.64,
+            "produtividade": 4844,
+            "producao": 3.1
+          },
+          "2024/25": {
+            "area": 0.67,
+            "produtividade": 5074,
+            "producao": 3.4
+          },
+          "2025/26": {
+            "area": 0.69,
+            "produtividade": 5100,
+            "producao": 3.52
+          }
+        }
+      },
+      {
+        "uf": "SC",
+        "nome": "Santa Catarina",
+        "dados": {
+          "2022/23": {
+            "area": 0.34,
+            "produtividade": 8676,
+            "producao": 2.95
+          },
+          "2023/24": {
+            "area": 0.33,
+            "produtividade": 8636,
+            "producao": 2.85
+          },
+          "2024/25": {
+            "area": 0.34,
+            "produtividade": 8971,
+            "producao": 3.05
+          },
+          "2025/26": {
+            "area": 0.34,
+            "produtividade": 9000,
+            "producao": 3.06
+          }
+        }
+      },
+      {
+        "uf": "BA",
+        "nome": "Bahia",
+        "dados": {
+          "2022/23": {
+            "area": 0.59,
+            "produtividade": 4780,
+            "producao": 2.82
+          },
+          "2023/24": {
+            "area": 0.55,
+            "produtividade": 4636,
+            "producao": 2.55
+          },
+          "2024/25": {
+            "area": 0.61,
+            "produtividade": 4836,
+            "producao": 2.95
+          },
+          "2025/26": {
+            "area": 0.62,
+            "produtividade": 4900,
+            "producao": 3.04
+          }
+        }
+      },
+      {
+        "uf": "MA",
+        "nome": "Maranhão",
+        "dados": {
+          "2022/23": {
+            "area": 0.65,
+            "produtividade": 3769,
+            "producao": 2.45
+          },
+          "2023/24": {
+            "area": 0.61,
+            "produtividade": 3689,
+            "producao": 2.25
+          },
+          "2024/25": {
+            "area": 0.65,
+            "produtividade": 4077,
+            "producao": 2.65
+          },
+          "2025/26": {
+            "area": 0.66,
+            "produtividade": 4100,
+            "producao": 2.71
+          }
+        }
+      }
+    ],
+    "fonte_principal": "Conab",
+    "fontes_detalhadas": [
+      "Conab - 10o Levantamento da Safra 2024/25 (abr/2025) - dados consolidados 22/23, 23/24, 24/25",
+      "Conab - 3o Levantamento da Safra 2025/26 (dez/2025) - projecao 25/26",
+      "IBGE - LSPA/PAM (SIDRA tabela 6588) - referencia cruzada por UF"
+    ],
+    "safras_projetadas": [
+      "2025/26"
+    ]
+  },
+  "estados_eua": {
+    "fonte": "USDA NASS — Crop Production Annual Summary, 2022, 2023 e 2024",
+    "unidade": {
+      "area": "Mi ha",
+      "produtividade": "kg/ha",
+      "producao": "Mt"
+    },
+    "safras": [
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "obs": "Valores convertidos do sistema imperial: 1 ac = 0,4047 ha; 1 bu soja = 27,2155 kg; 1 bu milho = 25,4012 kg.",
+    "soja": [
+      {
+        "uf": "IL",
+        "nome": "Illinois",
+        "dados": {
+          "2022": {
+            "area": 4.21,
+            "produtividade": 4302,
+            "producao": 18.1
+          },
+          "2023": {
+            "area": 4.13,
+            "produtividade": 4093,
+            "producao": 16.9
+          },
+          "2024": {
+            "area": 4.25,
+            "produtividade": 4282,
+            "producao": 18.2
+          },
+          "2025": {
+            "area": 4.27,
+            "produtividade": 4280,
+            "producao": 18.27
+          }
+        }
+      },
+      {
+        "uf": "IA",
+        "nome": "Iowa",
+        "dados": {
+          "2022": {
+            "area": 4.04,
+            "produtividade": 4032,
+            "producao": 16.3
+          },
+          "2023": {
+            "area": 4.05,
+            "produtividade": 3987,
+            "producao": 16.15
+          },
+          "2024": {
+            "area": 4.13,
+            "produtividade": 4115,
+            "producao": 17.0
+          },
+          "2025": {
+            "area": 4.13,
+            "produtividade": 4100,
+            "producao": 16.93
+          }
+        }
+      },
+      {
+        "uf": "MN",
+        "nome": "Minnesota",
+        "dados": {
+          "2022": {
+            "area": 2.91,
+            "produtividade": 3434,
+            "producao": 9.99
+          },
+          "2023": {
+            "area": 2.91,
+            "produtividade": 3168,
+            "producao": 9.22
+          },
+          "2024": {
+            "area": 2.99,
+            "produtividade": 3300,
+            "producao": 9.86
+          },
+          "2025": {
+            "area": 2.99,
+            "produtividade": 3300,
+            "producao": 9.87
+          }
+        }
+      },
+      {
+        "uf": "IN",
+        "nome": "Indiana",
+        "dados": {
+          "2022": {
+            "area": 2.31,
+            "produtividade": 3705,
+            "producao": 8.55
+          },
+          "2023": {
+            "area": 2.27,
+            "produtividade": 3756,
+            "producao": 8.52
+          },
+          "2024": {
+            "area": 2.39,
+            "produtividade": 3823,
+            "producao": 9.13
+          },
+          "2025": {
+            "area": 2.39,
+            "produtividade": 3820,
+            "producao": 9.13
+          }
+        }
+      },
+      {
+        "uf": "ND",
+        "nome": "North Dakota",
+        "dados": {
+          "2022": {
+            "area": 2.65,
+            "produtividade": 2299,
+            "producao": 6.1
+          },
+          "2023": {
+            "area": 2.59,
+            "produtividade": 2122,
+            "producao": 5.49
+          },
+          "2024": {
+            "area": 2.51,
+            "produtividade": 2660,
+            "producao": 6.67
+          },
+          "2025": {
+            "area": 2.51,
+            "produtividade": 2700,
+            "producao": 6.78
+          }
+        }
+      },
+      {
+        "uf": "OH",
+        "nome": "Ohio",
+        "dados": {
+          "2022": {
+            "area": 2.04,
+            "produtividade": 3636,
+            "producao": 7.42
+          },
+          "2023": {
+            "area": 2.05,
+            "produtividade": 3415,
+            "producao": 7.0
+          },
+          "2024": {
+            "area": 2.13,
+            "produtividade": 3568,
+            "producao": 7.6
+          },
+          "2025": {
+            "area": 2.13,
+            "produtividade": 3580,
+            "producao": 7.62
+          }
+        }
+      },
+      {
+        "uf": "NE",
+        "nome": "Nebraska",
+        "dados": {
+          "2022": {
+            "area": 2.07,
+            "produtividade": 3673,
+            "producao": 7.6
+          },
+          "2023": {
+            "area": 2.05,
+            "produtividade": 3493,
+            "producao": 7.16
+          },
+          "2024": {
+            "area": 2.18,
+            "produtividade": 3656,
+            "producao": 7.97
+          },
+          "2025": {
+            "area": 2.18,
+            "produtividade": 3680,
+            "producao": 8.02
+          }
+        }
+      },
+      {
+        "uf": "MO",
+        "nome": "Missouri",
+        "dados": {
+          "2022": {
+            "area": 2.31,
+            "produtividade": 3158,
+            "producao": 7.3
+          },
+          "2023": {
+            "area": 2.27,
+            "produtividade": 3026,
+            "producao": 6.87
+          },
+          "2024": {
+            "area": 2.39,
+            "produtividade": 3193,
+            "producao": 7.63
+          },
+          "2025": {
+            "area": 2.39,
+            "produtividade": 3200,
+            "producao": 7.65
+          }
+        }
+      },
+      {
+        "uf": "KS",
+        "nome": "Kansas",
+        "dados": {
+          "2022": {
+            "area": 1.74,
+            "produtividade": 2701,
+            "producao": 4.7
+          },
+          "2023": {
+            "area": 1.66,
+            "produtividade": 2920,
+            "producao": 4.85
+          },
+          "2024": {
+            "area": 1.74,
+            "produtividade": 3219,
+            "producao": 5.6
+          },
+          "2025": {
+            "area": 1.74,
+            "produtividade": 3220,
+            "producao": 5.6
+          }
+        }
+      },
+      {
+        "uf": "SD",
+        "nome": "South Dakota",
+        "dados": {
+          "2022": {
+            "area": 2.14,
+            "produtividade": 2852,
+            "producao": 6.1
+          },
+          "2023": {
+            "area": 2.1,
+            "produtividade": 2829,
+            "producao": 5.94
+          },
+          "2024": {
+            "area": 2.1,
+            "produtividade": 3057,
+            "producao": 6.42
+          },
+          "2025": {
+            "area": 2.1,
+            "produtividade": 3070,
+            "producao": 6.45
+          }
+        }
+      }
+    ],
+    "milho": [
+      {
+        "uf": "IA",
+        "nome": "Iowa",
+        "dados": {
+          "2022": {
+            "area": 5.14,
+            "produtividade": 12300,
+            "producao": 63.22
+          },
+          "2023": {
+            "area": 5.3,
+            "produtividade": 12992,
+            "producao": 68.86
+          },
+          "2024": {
+            "area": 5.1,
+            "produtividade": 12700,
+            "producao": 64.77
+          },
+          "2025": {
+            "area": 5.1,
+            "produtividade": 12700,
+            "producao": 64.77
+          }
+        }
+      },
+      {
+        "uf": "IL",
+        "nome": "Illinois",
+        "dados": {
+          "2022": {
+            "area": 4.45,
+            "produtividade": 12300,
+            "producao": 54.74
+          },
+          "2023": {
+            "area": 4.65,
+            "produtividade": 12300,
+            "producao": 57.2
+          },
+          "2024": {
+            "area": 4.49,
+            "produtividade": 12100,
+            "producao": 54.31
+          },
+          "2025": {
+            "area": 4.49,
+            "produtividade": 12150,
+            "producao": 54.55
+          }
+        }
+      },
+      {
+        "uf": "NE",
+        "nome": "Nebraska",
+        "dados": {
+          "2022": {
+            "area": 3.84,
+            "produtividade": 10800,
+            "producao": 41.47
+          },
+          "2023": {
+            "area": 3.97,
+            "produtividade": 11500,
+            "producao": 45.66
+          },
+          "2024": {
+            "area": 3.94,
+            "produtividade": 11200,
+            "producao": 44.13
+          },
+          "2025": {
+            "area": 3.94,
+            "produtividade": 11250,
+            "producao": 44.33
+          }
+        }
+      },
+      {
+        "uf": "MN",
+        "nome": "Minnesota",
+        "dados": {
+          "2022": {
+            "area": 3.2,
+            "produtividade": 11500,
+            "producao": 36.8
+          },
+          "2023": {
+            "area": 3.32,
+            "produtividade": 11300,
+            "producao": 37.52
+          },
+          "2024": {
+            "area": 3.2,
+            "produtividade": 11460,
+            "producao": 36.67
+          },
+          "2025": {
+            "area": 3.2,
+            "produtividade": 11500,
+            "producao": 36.8
+          }
+        }
+      },
+      {
+        "uf": "IN",
+        "nome": "Indiana",
+        "dados": {
+          "2022": {
+            "area": 2.18,
+            "produtividade": 11700,
+            "producao": 25.51
+          },
+          "2023": {
+            "area": 2.21,
+            "produtividade": 12235,
+            "producao": 27.04
+          },
+          "2024": {
+            "area": 2.16,
+            "produtividade": 12200,
+            "producao": 26.35
+          },
+          "2025": {
+            "area": 2.16,
+            "produtividade": 12200,
+            "producao": 26.35
+          }
+        }
+      },
+      {
+        "uf": "SD",
+        "nome": "South Dakota",
+        "dados": {
+          "2022": {
+            "area": 2.27,
+            "produtividade": 8000,
+            "producao": 18.16
+          },
+          "2023": {
+            "area": 2.39,
+            "produtividade": 9200,
+            "producao": 21.99
+          },
+          "2024": {
+            "area": 2.39,
+            "produtividade": 8200,
+            "producao": 19.6
+          },
+          "2025": {
+            "area": 2.39,
+            "produtividade": 8300,
+            "producao": 19.84
+          }
+        }
+      },
+      {
+        "uf": "KS",
+        "nome": "Kansas",
+        "dados": {
+          "2022": {
+            "area": 2.27,
+            "produtividade": 7480,
+            "producao": 16.98
+          },
+          "2023": {
+            "area": 2.27,
+            "produtividade": 7720,
+            "producao": 17.52
+          },
+          "2024": {
+            "area": 2.27,
+            "produtividade": 7530,
+            "producao": 17.1
+          },
+          "2025": {
+            "area": 2.27,
+            "produtividade": 7600,
+            "producao": 17.25
+          }
+        }
+      },
+      {
+        "uf": "OH",
+        "nome": "Ohio",
+        "dados": {
+          "2022": {
+            "area": 1.4,
+            "produtividade": 11200,
+            "producao": 15.68
+          },
+          "2023": {
+            "area": 1.42,
+            "produtividade": 11800,
+            "producao": 16.76
+          },
+          "2024": {
+            "area": 1.41,
+            "produtividade": 11400,
+            "producao": 16.07
+          },
+          "2025": {
+            "area": 1.41,
+            "produtividade": 11500,
+            "producao": 16.22
+          }
+        }
+      },
+      {
+        "uf": "WI",
+        "nome": "Wisconsin",
+        "dados": {
+          "2022": {
+            "area": 1.42,
+            "produtividade": 10100,
+            "producao": 14.34
+          },
+          "2023": {
+            "area": 1.46,
+            "produtividade": 10650,
+            "producao": 15.55
+          },
+          "2024": {
+            "area": 1.42,
+            "produtividade": 10300,
+            "producao": 14.63
+          },
+          "2025": {
+            "area": 1.42,
+            "produtividade": 10350,
+            "producao": 14.7
+          }
+        }
+      },
+      {
+        "uf": "MO",
+        "nome": "Missouri",
+        "dados": {
+          "2022": {
+            "area": 1.42,
+            "produtividade": 10750,
+            "producao": 15.27
+          },
+          "2023": {
+            "area": 1.42,
+            "produtividade": 10500,
+            "producao": 14.91
+          },
+          "2024": {
+            "area": 1.4,
+            "produtividade": 10400,
+            "producao": 14.56
+          },
+          "2025": {
+            "area": 1.4,
+            "produtividade": 10450,
+            "producao": 14.63
+          }
+        }
+      }
+    ],
+    "fonte_principal": "USDA NASS",
+    "fontes_detalhadas": [
+      "USDA NASS - Crop Production 2024 Annual Summary (jan/2025) - dados 2022, 2023, 2024",
+      "USDA NASS - Crop Production Quarterly Forecast (set/2025) - projecao 2025",
+      "Conversao: 1 acre = 0,4047 ha; 1 bu soja = 27,2155 kg; 1 bu milho = 25,4012 kg"
+    ],
+    "safras_projetadas": [
+      "2025"
+    ]
+  },
+  "exportacoes_uf": {
+    "fonte_principal": "ComexStat (MDIC)",
+    "fontes_detalhadas": [
+      "ComexStat / MDIC - exportacao por UF de origem da carga - NCM 12019000 (soja), 10059010 (milho), 23040010 (farelo), 15071000 (oleo bruto)",
+      "Acumulado YTD jan-abr/2026 vs jan-abr/2025 vs jan-abr/2024 - em mil toneladas (kt) e FOB US$ milhoes",
+      "Atencao: UF de origem da carga (declarada na DUE) pode diferir da UF do porto de embarque"
+    ],
+    "unidade": {
+      "volume": "kt",
+      "fob": "US$ milhoes"
+    },
+    "periodo_atual": "Jan-Abr 2026 (YTD)",
+    "periodo_anterior": "Jan-Abr 2025 (YTD)",
+    "periodo_2anos": "Jan-Abr 2024 (YTD)",
+    "soja": [
+      {
+        "uf": "MT",
+        "nome": "Mato Grosso",
+        "ytd_2024": 8240,
+        "ytd_2025": 9120,
+        "ytd_2026": 10350,
+        "fob_2026": 4350,
+        "pct_total": 31.2
+      },
+      {
+        "uf": "PR",
+        "nome": "Parana",
+        "ytd_2024": 5180,
+        "ytd_2025": 5820,
+        "ytd_2026": 6240,
+        "fob_2026": 2620,
+        "pct_total": 18.8
+      },
+      {
+        "uf": "RS",
+        "nome": "Rio Grande do Sul",
+        "ytd_2024": 4920,
+        "ytd_2025": 5210,
+        "ytd_2026": 5650,
+        "fob_2026": 2370,
+        "pct_total": 17.0
+      },
+      {
+        "uf": "GO",
+        "nome": "Goias",
+        "ytd_2024": 2680,
+        "ytd_2025": 2910,
+        "ytd_2026": 3180,
+        "fob_2026": 1335,
+        "pct_total": 9.6
+      },
+      {
+        "uf": "MS",
+        "nome": "Mato Grosso do Sul",
+        "ytd_2024": 1850,
+        "ytd_2025": 2020,
+        "ytd_2026": 2230,
+        "fob_2026": 935,
+        "pct_total": 6.7
+      },
+      {
+        "uf": "BA",
+        "nome": "Bahia",
+        "ytd_2024": 1240,
+        "ytd_2025": 1380,
+        "ytd_2026": 1520,
+        "fob_2026": 638,
+        "pct_total": 4.6
+      },
+      {
+        "uf": "MA",
+        "nome": "Maranhao",
+        "ytd_2024": 980,
+        "ytd_2025": 1120,
+        "ytd_2026": 1240,
+        "fob_2026": 521,
+        "pct_total": 3.7
+      },
+      {
+        "uf": "TO",
+        "nome": "Tocantins",
+        "ytd_2024": 720,
+        "ytd_2025": 820,
+        "ytd_2026": 920,
+        "fob_2026": 386,
+        "pct_total": 2.8
+      },
+      {
+        "uf": "PI",
+        "nome": "Piaui",
+        "ytd_2024": 540,
+        "ytd_2025": 610,
+        "ytd_2026": 690,
+        "fob_2026": 290,
+        "pct_total": 2.1
+      },
+      {
+        "uf": "MG",
+        "nome": "Minas Gerais",
+        "ytd_2024": 410,
+        "ytd_2025": 460,
+        "ytd_2026": 510,
+        "fob_2026": 214,
+        "pct_total": 1.5
+      }
+    ],
+    "milho": [
+      {
+        "uf": "MT",
+        "nome": "Mato Grosso",
+        "ytd_2024": 480,
+        "ytd_2025": 920,
+        "ytd_2026": 1320,
+        "fob_2026": 290,
+        "pct_total": 38.2
+      },
+      {
+        "uf": "PR",
+        "nome": "Parana",
+        "ytd_2024": 280,
+        "ytd_2025": 480,
+        "ytd_2026": 720,
+        "fob_2026": 158,
+        "pct_total": 20.8
+      },
+      {
+        "uf": "GO",
+        "nome": "Goias",
+        "ytd_2024": 165,
+        "ytd_2025": 290,
+        "ytd_2026": 420,
+        "fob_2026": 92,
+        "pct_total": 12.1
+      },
+      {
+        "uf": "MS",
+        "nome": "Mato Grosso do Sul",
+        "ytd_2024": 130,
+        "ytd_2025": 220,
+        "ytd_2026": 340,
+        "fob_2026": 75,
+        "pct_total": 9.8
+      },
+      {
+        "uf": "SP",
+        "nome": "Sao Paulo",
+        "ytd_2024": 95,
+        "ytd_2025": 160,
+        "ytd_2026": 230,
+        "fob_2026": 51,
+        "pct_total": 6.6
+      },
+      {
+        "uf": "MG",
+        "nome": "Minas Gerais",
+        "ytd_2024": 70,
+        "ytd_2025": 110,
+        "ytd_2026": 165,
+        "fob_2026": 36,
+        "pct_total": 4.8
+      },
+      {
+        "uf": "BA",
+        "nome": "Bahia",
+        "ytd_2024": 45,
+        "ytd_2025": 80,
+        "ytd_2026": 120,
+        "fob_2026": 26,
+        "pct_total": 3.5
+      },
+      {
+        "uf": "TO",
+        "nome": "Tocantins",
+        "ytd_2024": 30,
+        "ytd_2025": 55,
+        "ytd_2026": 80,
+        "fob_2026": 18,
+        "pct_total": 2.3
+      }
+    ],
+    "farelo_soja": [
+      {
+        "uf": "PR",
+        "nome": "Parana",
+        "ytd_2024": 1840,
+        "ytd_2025": 1960,
+        "ytd_2026": 2120,
+        "fob_2026": 720,
+        "pct_total": 28.4
+      },
+      {
+        "uf": "MT",
+        "nome": "Mato Grosso",
+        "ytd_2024": 1380,
+        "ytd_2025": 1520,
+        "ytd_2026": 1690,
+        "fob_2026": 575,
+        "pct_total": 22.6
+      },
+      {
+        "uf": "RS",
+        "nome": "Rio Grande do Sul",
+        "ytd_2024": 1210,
+        "ytd_2025": 1320,
+        "ytd_2026": 1450,
+        "fob_2026": 493,
+        "pct_total": 19.4
+      },
+      {
+        "uf": "GO",
+        "nome": "Goias",
+        "ytd_2024": 580,
+        "ytd_2025": 640,
+        "ytd_2026": 710,
+        "fob_2026": 241,
+        "pct_total": 9.5
+      },
+      {
+        "uf": "SC",
+        "nome": "Santa Catarina",
+        "ytd_2024": 320,
+        "ytd_2025": 360,
+        "ytd_2026": 400,
+        "fob_2026": 136,
+        "pct_total": 5.4
+      },
+      {
+        "uf": "MS",
+        "nome": "Mato Grosso do Sul",
+        "ytd_2024": 240,
+        "ytd_2025": 270,
+        "ytd_2026": 310,
+        "fob_2026": 105,
+        "pct_total": 4.2
+      }
+    ],
+    "oleo_soja": [
+      {
+        "uf": "PR",
+        "nome": "Parana",
+        "ytd_2024": 95,
+        "ytd_2025": 88,
+        "ytd_2026": 82,
+        "fob_2026": 95,
+        "pct_total": 28.5
+      },
+      {
+        "uf": "MT",
+        "nome": "Mato Grosso",
+        "ytd_2024": 78,
+        "ytd_2025": 72,
+        "ytd_2026": 68,
+        "fob_2026": 79,
+        "pct_total": 23.6
+      },
+      {
+        "uf": "RS",
+        "nome": "Rio Grande do Sul",
+        "ytd_2024": 62,
+        "ytd_2025": 58,
+        "ytd_2026": 54,
+        "fob_2026": 63,
+        "pct_total": 18.7
+      },
+      {
+        "uf": "GO",
+        "nome": "Goias",
+        "ytd_2024": 38,
+        "ytd_2025": 35,
+        "ytd_2026": 32,
+        "fob_2026": 37,
+        "pct_total": 11.1
+      },
+      {
+        "uf": "SC",
+        "nome": "Santa Catarina",
+        "ytd_2024": 22,
+        "ytd_2025": 20,
+        "ytd_2026": 18,
+        "fob_2026": 21,
+        "pct_total": 6.2
+      }
+    ]
+  },
+  "capacidade_estatica": {
+    "fonte_principal": "Conab / SICARM (Sistema Nacional de Cadastro de Unidades Armazenadoras)",
+    "fontes_detalhadas": [
+      "Conab - SICARM 2024 - Capacidade Estatica dos Armazens por UF e categoria",
+      "Conab - Boletim Logistico Trimestral (2024) - distribuicao por classe e estado",
+      "Tipos: Particular = produtores + empresas privadas | Cooperativa = rede cooperativa | Exportador = trading companies (Bunge, ADM, Cargill, COFCO, LDC, etc.) | Outros = Conab (estoque publico) + industrias 3a parte"
+    ],
+    "data_referencia": "dez/2024",
+    "unidade": "Mt (milhoes de toneladas - capacidade estatica)",
+    "totais_nacional": {
+      "total": 213.5,
+      "particular": 95.8,
+      "cooperativa": 63.2,
+      "exportador": 47.1,
+      "outros": 7.4
+    },
+    "por_uf": [
+      {
+        "uf": "MT",
+        "nome": "Mato Grosso",
+        "total": 53.2,
+        "particular": 24.5,
+        "cooperativa": 12.8,
+        "exportador": 14.5,
+        "outros": 1.4
+      },
+      {
+        "uf": "RS",
+        "nome": "Rio Grande do Sul",
+        "total": 46.5,
+        "particular": 19.8,
+        "cooperativa": 18.2,
+        "exportador": 7.8,
+        "outros": 0.7
+      },
+      {
+        "uf": "PR",
+        "nome": "Parana",
+        "total": 43.8,
+        "particular": 18.5,
+        "cooperativa": 17.5,
+        "exportador": 7.0,
+        "outros": 0.8
+      },
+      {
+        "uf": "GO",
+        "nome": "Goias",
+        "total": 22.8,
+        "particular": 11.2,
+        "cooperativa": 4.8,
+        "exportador": 6.2,
+        "outros": 0.6
+      },
+      {
+        "uf": "MS",
+        "nome": "Mato Grosso do Sul",
+        "total": 16.4,
+        "particular": 7.5,
+        "cooperativa": 4.2,
+        "exportador": 4.2,
+        "outros": 0.5
+      },
+      {
+        "uf": "SP",
+        "nome": "Sao Paulo",
+        "total": 11.8,
+        "particular": 6.8,
+        "cooperativa": 1.5,
+        "exportador": 3.0,
+        "outros": 0.5
+      },
+      {
+        "uf": "MG",
+        "nome": "Minas Gerais",
+        "total": 9.5,
+        "particular": 5.5,
+        "cooperativa": 1.8,
+        "exportador": 1.8,
+        "outros": 0.4
+      },
+      {
+        "uf": "BA",
+        "nome": "Bahia",
+        "total": 7.2,
+        "particular": 4.5,
+        "cooperativa": 0.8,
+        "exportador": 1.6,
+        "outros": 0.3
+      },
+      {
+        "uf": "SC",
+        "nome": "Santa Catarina",
+        "total": 5.8,
+        "particular": 2.2,
+        "cooperativa": 2.8,
+        "exportador": 0.6,
+        "outros": 0.2
+      },
+      {
+        "uf": "MA",
+        "nome": "Maranhao",
+        "total": 3.6,
+        "particular": 1.8,
+        "cooperativa": 0.4,
+        "exportador": 1.2,
+        "outros": 0.2
+      },
+      {
+        "uf": "TO",
+        "nome": "Tocantins",
+        "total": 2.6,
+        "particular": 1.4,
+        "cooperativa": 0.3,
+        "exportador": 0.7,
+        "outros": 0.2
+      },
+      {
+        "uf": "PI",
+        "nome": "Piaui",
+        "total": 2.4,
+        "particular": 1.4,
+        "cooperativa": 0.3,
+        "exportador": 0.5,
+        "outros": 0.2
+      }
+    ]
+  }
+}
