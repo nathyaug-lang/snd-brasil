@@ -1,40 +1,78 @@
 # SnD Brasil — Soja e Milho
 
-Site público do relatório Supply and Demand (SnD) Brasil — Soja e Milho.
+Relatório público de **Supply and Demand** (oferta e demanda) de soja e milho brasileiros, com coleta automática de fontes oficiais e regeneração sob demanda.
 
-Roda como app Flask no Render. O botão **Atualizar** dispara o pipeline server-side que coleta dados de Conab, CEPEA, IBGE SIDRA, ComexStat e USDA, regenera o HTML e recarrega a página com a versão nova.
+🌐 **Live:** https://snd-brasil.onrender.com
+📦 **Backup estático (GitHub Pages):** https://nathyaug-lang.github.io/snd-brasil/
 
-## Arquitetura
+---
 
-| Componente | Função |
-|---|---|
-| `app.py` | Flask app — serve o HTML em `/`, executa pipeline em `POST /atualizar`, status em `/healthz`. |
-| `atualizar_snd.py` | Pipeline principal — coleta fontes, faz diff, regrava snapshot, gera HTMLs. |
-| `gerar_unified_html.py`, `gerar_html.py`, `gerar_alertas_html.py` | Geradores de HTML (visões dinâmica, estática, gráficos, alertas). |
-| `detector_mudancas.py` | Diff estrutural entre snapshots. |
-| `dados/snd_dados.json` | Snapshot vivo (entrada e saída do pipeline). |
-| `output/SnD_Brasil_Unified.html` | HTML servido publicamente. |
-| `Procfile`, `render.yaml`, `runtime.txt`, `requirements.txt` | Deploy Render. |
+## O que esse site faz
 
-## Endpoints
+Apresenta o balanço de oferta e demanda de **soja** e **milho** no Brasil em seis visões:
 
-- `GET /` — serve `output/SnD_Brasil_Unified.html`.
-- `POST /atualizar` — executa pipeline (~30-90s). Retorna JSON com `mudancas`, `noticias`, `alertas`, `last_run`. Lock em memória previne execuções concorrentes.
-- `GET /healthz` — status do app.
+- **Visão Dinâmica** — destaca células que mudaram desde a última atualização (●)
+- **Visão Estática** — tabela completa do balanço atual
+- **Visão Gráficos** — produção × exportação × consumo, séries históricas + projeção
+- **Áreas e Produção** — estados produtores (Centro-Oeste, Sul, Nordeste, etc.)
+- **Fluxo de Exportação por UF** — origem e destino dos embarques
+- **Capacidade Estática** — armazenagem e infraestrutura logística
+
+Cada visão tem um botão de copiar imagem (PNG) e a página inteira pode ser salva como PDF.
+
+## Como atualizar
+
+Clique no botão verde **Atualizar** no topo da página. Isso dispara o pipeline server-side (~30-90s) que:
+
+1. Consulta Conab (RSS), CEPEA (RSS), IBGE SIDRA, ComexStat e USDA PSD
+2. Compara com o snapshot anterior, registra o que mudou
+3. Regrava o HTML público
+4. Recarrega a página com os dados novos
+
+## Fontes consumidas
+
+| Fonte | Tipo | Uso |
+|---|---|---|
+| Conab | RSS | Notícias e boletins de safra |
+| CEPEA/ESALQ | RSS | Sinais de preço e mercado |
+| IBGE SIDRA | API REST (JSON) | Validação LSPA — tabela 6588 |
+| ComexStat (MDIC) | API POST (JSON) | Volumes exportados por NCM |
+| USDA PSD | API REST (chave) | Referência global (opcional) |
+
+## Stack
+
+- **Backend:** Python 3.12 + Flask + gunicorn
+- **Frontend:** HTML/CSS/JS estático autocontido (CSS e JS inline)
+- **Hospedagem:** [Render](https://render.com) (free tier) via Blueprint (`render.yaml`)
+- **Versionamento:** GitHub — auto-deploy a cada push em `main`
 
 ## Rodar localmente
 
 ```bash
 pip install -r requirements.txt
-python app.py            # http://localhost:8000
-# ou
-gunicorn app:app --timeout 180
+python app.py        # http://localhost:8000
 ```
 
-## Atualização de dados
+Ou só rodar o pipeline (sem servir HTTP):
 
-Cada clique no botão **Atualizar** roda o pipeline completo (`atualizar_snd.executar()`) e re-aplica os patches públicos no HTML (botão + handler). Não há agendamento automático.
+```bash
+python atualizar_snd.py             # atualização completa
+python atualizar_snd.py --apenas-feeds   # só notícias (mais rápido)
+python atualizar_snd.py --dry-run        # simula sem gravar
+```
 
-## Persistência
+## Endpoints
 
-Render free tier tem filesystem efêmero — snapshots e HTMLs vivem entre requisições mas são resetados a cada deploy. Para persistência real, usar disk add-on do Render ou commitar os snapshots de volta ao repo via Action.
+| Rota | Método | Descrição |
+|---|---|---|
+| `/` | GET | Serve `output/SnD_Brasil_Unified.html` |
+| `/atualizar` | POST | Executa pipeline + reaplica patches públicos. Retorna JSON. |
+| `/healthz` | GET | Status: `{ok, html_exists, running, last_run, last_error}` |
+
+## Aviso
+
+Os dados são compilados de fontes públicas e o relatório **não constitui recomendação de investimento**. Casas privadas (StoneX, AgRural, Safras & Mercado) podem divergir 3-8 Mt em projeções de safra — metodologias próprias.
+
+---
+
+Para contexto interno e instruções pra desenvolvedores, ver [CONTEXTO.md](CONTEXTO.md).
